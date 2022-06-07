@@ -5,11 +5,11 @@ if (isset($_POST['daftar'])) {
 
     $nama = $_POST['nama'];
     $alamat = $_POST['alamat'];
-    $telepon = $_POST['telepon'];
+    $telp = $_POST['telp'];
     $prodi = $_POST['prodi'];
 
-    mysqli_query($db, "INSERT INTO mahasiswaa VALUES
-    ('','$nama', '$alamat', '$telepon', '$prodi')");
+    mysqli_query($db, "INSERT INTO mahasiswa VALUES
+    ('','$nama', '$alamat', '$telp', '$prodi')");
 
     // mengalihkan halaman kembali ke index.php
     header("location:index.php");

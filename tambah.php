@@ -4,7 +4,7 @@
 <head>
     <title>Belajar PHP | Tambah Data Identitas</title>
     <style>
-input[type=text], select, textarea {
+input[type=text], select,textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -52,13 +52,13 @@ div {
                 <textarea name="alamat"></textarea>
             </p>
             <p>
-                <label for="telpon">Nomor HP: </label>
-                <textarea name="telepon"></textarea>
-            </p>
-            <p>
+                <label for="telp">telp: </label>
+                <textarea name="telp"></textarea>
+           </p>
+           <p>
                 <label for="prodi">prodi: </label>
-                <input type="text" name="prodi" placeholder="prodi" />
-            </p>
+                <textarea name="prodi"></textarea>
+           </p>
             <p>
                 <input type="submit" value="Daftar" name="daftar" />
             </p>

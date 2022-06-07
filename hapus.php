@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $sql = "DELETE FROM mahasiswaa WHERE id_mahasiswa=$id";
+    $sql = "DELETE FROM mahasiswa WHERE id_mahasiswa =$id";
     $query = mysqli_query($db, $sql);
 
     if ($query) {

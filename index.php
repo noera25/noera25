@@ -1,10 +1,20 @@
+<?php
+  session_start();
+  if(isset($_SESSION['username'])){
+    echo " selamat datang " . $_SESSION['username'];
+    echo "<a href='logout.php'> logout</a>";
+  }
+
+  ?>
 <!DOCTYPE html>
 <html>
 
 <head>
+    <title>Belajar PHP - Tampilkan Data Identitas</title>
+
     <style>
 #customers {
-  font-family: Arial Black, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -21,7 +31,7 @@
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: middle;
+  text-align: left;
   background-color: #04AA6D;
   color: white;
 }
@@ -36,7 +46,7 @@
   font-size: 16px;
 }
 .button-hapus {
-  background-color: #B22222; /* Fire Brick */
+  background-color: #B22222; /* red */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -45,29 +55,31 @@
   display: inline-block;
   font-size: 16px;
 }
+
 </style>
-    <title>Belajar PHP - Tampilkan Data Identitas</title>
+
 </head>
 
 <body>
 
-    <a href="tambah.php">+ TAMBAH IDENTITAS</a>
+    <a href="tambah.php">+ TAMBAH IDENTITAS</a><br/>
+    <a href = "login.php"> LOGIN </a>
     <br />
     <br />
-    <table border="1" id="customers">
+    <table id="customers">
         <tr>
-            <th>No</th>
+            <th>NO</th>
             <th>id_mahasiswa</th>
-            <th>nama</th>
-            <th>alamat</th>
-            <th>telepon</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>telp</th>
             <th>prodi</th>
-            <th>Aksi</th>
+            <th>aksi</th>
         </tr>
         <?php
         include 'connect.php';
         $no = 1;
-        $data = mysqli_query($db, "SELECT * FROM mahasiswaa");
+        $data = mysqli_query($db, "SELECT * FROM mahasiswa");
         while ($d = mysqli_fetch_array($data)) {
         ?>
             <tr>
@@ -75,11 +87,11 @@
                 <td><?php echo $d['id_mahasiswa']; ?></td>
                 <td><?php echo $d['nama']; ?></td>
                 <td><?php echo $d['alamat']; ?></td>
-                <td><?php echo $d['telepon']; ?></td>
+                <td><?php echo $d['telp']; ?></td>
                 <td><?php echo $d['prodi']; ?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $d['id_mahasiswa']; ?>" class="button">EDIT</a>
-                    <a href="hapus.php?id=<?php echo $d['id_mahasiswa']; ?>" class="button-hapus">HAPUS</a>
+                    <a href="edit.php?id=<?php echo $d['id_mahasiswa']; ?>"class="button">EDIT</a>
+                    <a href="hapus.php?id=<?php echo $d['id_mahasiswa']; ?>"class="button-hapus">HAPUS</a>
                 </td>
             </tr>
         <?php
